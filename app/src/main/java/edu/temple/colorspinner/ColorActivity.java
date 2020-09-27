@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -31,18 +32,12 @@ public class ColorActivity extends AppCompatActivity {
 
         final String[] colors = {"Choose a color", "Red", "Yellow", "Green", "Blue", "Cyan", "Black", "Magenta","Gray","Light gray","Dark gray"};
 
-        ArrayAdapter<String> ColorAdapter = new ArrayAdapter<String>(ColorActivity.this, android.R.layout.simple_list_item_1, colors);
+        final BaseAdapter ColorAdapter = new ColorAdapter(ColorActivity.this, colors);
 
         spinner.setAdapter(ColorAdapter);
-        ColorAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        //ColorAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-/*
-            public View getDropDownView(int position,View convertView, ViewGroup parent){
-                View view;
-
-            }
-*/
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
