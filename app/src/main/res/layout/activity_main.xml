@@ -8,11 +8,12 @@
     tools:context=".ColorActivity">
 
     <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="254dp"
-         android:layout_height="81dp"
+        android:id="@+id/spinner"
+        android:layout_width="254dp"
+        android:layout_height="81dp"
         android:layout_marginStart="76dp"
         android:layout_marginTop="188dp"
+        android:dropDownSelector="@android:color/background_dark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

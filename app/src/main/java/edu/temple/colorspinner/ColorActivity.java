@@ -1,21 +1,25 @@
 package edu.temple.colorspinner;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 public class ColorActivity extends AppCompatActivity {
 
     Spinner spinner;
     ConstraintLayout myLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +32,21 @@ public class ColorActivity extends AppCompatActivity {
         final String[] colors = {"Choose a color", "Red", "Yellow", "Green", "Blue", "Cyan", "Black", "Magenta","Gray","Light gray","Dark gray"};
 
         ArrayAdapter<String> ColorAdapter = new ArrayAdapter<String>(ColorActivity.this, android.R.layout.simple_list_item_1, colors);
+
         spinner.setAdapter(ColorAdapter);
         ColorAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+/*
+            public View getDropDownView(int position,View convertView, ViewGroup parent){
+                View view;
 
+            }
+*/
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView)spinner.getSelectedView()).setBackgroundColor(Color.WHITE);
 
                 if(colors[position].equals("Red")) {
                       myLayout.setBackgroundColor(Color.RED);
